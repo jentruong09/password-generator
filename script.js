@@ -1,14 +1,19 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz"
-var upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var numbers = "1234567890"
-var specialCharacters = " !&#$%)(*+?\|:;_-<>,.^"
-
+var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
+var upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "1234567890";
+var specialCharacters = " !&#$%)(*+?\|:;_-<>,.^";
+var passwordLength = " "
 
 function generatePassword() {
-  prompt("Please select a number from 8 to 128 for password length.")
-}
+   var passwordLength = (prompt("Please select a number from 8 to 128 for password length."));
+   
+   if (passwordLength < 8 || passwordLength > 128) {
+    alert("Incorrect input. Please select a number from 8 to 128 for password length.");
+  } 
+  }
+
 
 
 
@@ -19,11 +24,9 @@ function writePassword() {
 
   passwordText.value = password;
 
+
 }
 
-if (password < 8 || password > 128) {
-  alert("Incorrect input. Please select a number from 8 to 128 for password length.")
-}
 
 
 // Add event listener to generate button
