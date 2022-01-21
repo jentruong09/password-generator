@@ -1,20 +1,22 @@
 // Assignment Code: what each variable stores
 var generateBtn = document.querySelector("#generate");
-var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
+var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz"; // Make these into arrays
 var upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "1234567890";
 var specialCharacters = " !&#$%)(*+?\|:;_-<>,.^";
-var passwordLength = " ";
 
 
 
+// Creating prompts, alerts, and confirmation depending on user input 
 function generatePassword() {
+  // First prompt - letting the user decide on how many characters they want in their password
    var passwordLength = (prompt("Please select a number from 8 to 128 for password length."));
-   
+   // If the user picks an amount that is not within the range, an alert will let the user know
    if (passwordLength < 8 || passwordLength > 128) {
     alert("Incorrect input. Please select a number from 8 to 128 for password length.");
-   
+    // When the correct amount is selected, this will let the user pick what they want in the password
    } else if (passwordLength >= 8 && passwordLength <= 128) {
+     console.log(passwordLength) // Logging the length of the password
     var confirmLowerCase = confirm("Would you like lower case letters in your password? Click 'OK' for yes. Click 'Cancel' for no.");
     var confirmUpperCase = confirm("Would you like upper case letters in your password? Click 'OK' for yes. Click 'Cancel' for no.");
     var confirmNumbers = confirm("Would you like numbers in your password? Click 'OK' for yes. Click 'Cancel' for no.");
@@ -22,6 +24,7 @@ function generatePassword() {
     // Confirming that user selects at least one of the character types
    }if (confirmLowerCase === false && confirmUpperCase === false && confirmNumbers === false && confirmSpecialCharacters === false) {
       alert("You must pick at least one character type.");
+    // Knowing which characters that the user would want
     if (confirmLowerCase == true) {
       
     }
@@ -31,7 +34,7 @@ function generatePassword() {
     if (confirmNumbers == true) {
       
     }
-    if (confirmSpecialCharacters) {
+    if (confirmSpecialCharacters == true) {
       
     }
   } 
@@ -47,11 +50,9 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-
 }
 
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword); // When clicking the button, something is to happen
