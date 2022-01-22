@@ -1,9 +1,9 @@
 // Assignment Code: what each variable stores
 var generateBtn = document.querySelector("#generate");
-var lowerCaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y","z"]; 
-var upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var numbers = ["1", "2", "3", "4", "5", "6", "7", "8","9","0"];
-var specialCharacters = ["!", "&", "#", "$", "%", ")", "(", "*", "+", "?", "|", ":", ";", "_", "-", "<", ">", ".", "^"];
+var lowerCaseAlphabet = "abcdefghijklmnopqrstvwxyz"; 
+var upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "1234567890";
+var specialCharacters = "!&#$%}*+{[?|,:;_-]";
 var passwordLength = " ";
 var characterTypes = " ";
 
@@ -25,26 +25,27 @@ function generatePassword() {
     // Confirming that user selects at least one of the character types
    }if (confirmLowerCase === false && confirmUpperCase === false && confirmNumbers === false && confirmSpecialCharacters === false) {
       alert("You must pick at least one character type.");
-    }
+}
     // Knowing which characters that the user would want
-    if (confirmLowerCase) {
+    if (confirmLowerCase === true) {
       characterTypes = characterTypes.concat(lowerCaseAlphabet);
     } 
-    if (confirmUpperCase) {
+    if (confirmUpperCase === true) {
       characterTypes = characterTypes.concat(upperCaseAlphabet);
   }
-    if (confirmNumbers) {
+    if (confirmNumbers === true) {
       characterTypes = characterTypes.concat(numbers);
     }
-    if (confirmSpecialCharacters) {
+    if (confirmSpecialCharacters === true) {
       characterTypes = characterTypes.concat(specialCharacters);
     } 
-
+    // Generating a random password from the length choice and user's confirmation from character types
+    var passwordText = " " // To give variable a definition, without this application pops up error message
     for (var i = 0; i < passwordLength; i++) {
-      password = password + characterTypes[Math.floor(Math.random() * characterTypes.length)];
-      console.log(password)
-    } return password;
-
+      passwordText = passwordText + characterTypes[Math.floor(Math.random() * characterTypes.length)];
+      //console.log(password)
+    } return passwordText; 
+  
 }
   
 // Write password to the #password input
@@ -53,12 +54,10 @@ function writePassword() {
   var passwordText = document.querySelector("#password")
 
   passwordText.value = password;
- 
 } 
 
 
 
 
 // Add event listener to generate button
-
 generateBtn.addEventListener("click", writePassword); // When clicking the button, something is to happen
