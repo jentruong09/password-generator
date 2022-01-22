@@ -26,7 +26,7 @@ function generatePassword() {
    }if (confirmLowerCase === false && confirmUpperCase === false && confirmNumbers === false && confirmSpecialCharacters === false) {
       alert("You must pick at least one character type.");
 }
-    // Knowing which characters that the user would want
+    // Confirming which characters that the user would want and when true will run with the for loop
     if (confirmLowerCase === true) {
       characterTypes = characterTypes.concat(lowerCaseAlphabet);
     } 
@@ -39,6 +39,7 @@ function generatePassword() {
     if (confirmSpecialCharacters === true) {
       characterTypes = characterTypes.concat(specialCharacters);
     } 
+
     // Generating a random password from the length choice and user's confirmation from character types
     var passwordText = " " // To give variable a definition, without this application pops up error message
     for (var i = 0; i < passwordLength; i++) {
@@ -48,16 +49,13 @@ function generatePassword() {
   
 }
   
-// Write password to the #password input
+// Write password to the #password input 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password")
 
   passwordText.value = password;
 } 
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); // When clicking the button, something is to happen
