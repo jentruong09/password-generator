@@ -1,9 +1,11 @@
+/* Sizing for the border of the area where the generated password will be */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Styling for the whole page that is consistent */
 html,
 body,
 .wrapper {
@@ -12,17 +14,20 @@ body,
   padding: 0;
 }
 
+/* Background color and font for the whole application */
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
 
+/* Spacing for page */
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+/* Syling for the header of the web app */
 header {
   text-align: center;
   padding: 20px;
@@ -30,6 +35,7 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Styling for the box that incorporates the header 'Generate a Password' and up until the button */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -41,6 +47,7 @@ header {
   max-width: 800px;
   padding: 30px 40px;
 }
+
 
 .card-header::after {
   content: " ";
@@ -54,6 +61,7 @@ header {
   min-height: 100px;
 }
 
+/* Styling for the button */
 .card-footer {
   text-align: center;
 }
@@ -117,7 +125,7 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
-
+/* To make the button and password area change size if and when the page is re-sized */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
